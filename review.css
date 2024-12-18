@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root {
+  --primary-color: #1E90FF; /* Updated primary color */
+  --dark-color: #222222;
+  --light-color: #f0f0f0;
+  --correct-color: #28a745; /* Green color for correct answers */
+}
+
+body, html {
+  height: 100%;
+  background: var(--dark-color);
+  margin: 0;
+}
+
+* {
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+.quiz-container {
+  width: 80%;
+  margin: 0 auto;
+  color: var(--light-color);
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.question-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.question {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.question h2 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  position: relative;
+  padding: 20px 50px;
+  margin-bottom: 10px;
+  background-color: #444;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+/* ul li:hover {
+  background-color: var(--primary-color);
+  transform: scale(1.05);
+} */
+
+ul li.correct {
+  background-color: var(--correct-color);
+  color: var(--light-color);
+}
+
+ul li label {
+  font-size: 1.2em;
+  color: var(--light-color);
+}
+
+ul li .check {
+  position: absolute;
+  top: 25px;
+  left: 15px;
+  width: 20px;
+  height: 20px;
+  border: 3px solid var(--light-color);
+  border-radius: 50%;
+  background-color: transparent;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+/* 
+ul li:hover .check {
+  border-color: var(--light-color);
+} */
+
+input[type="radio"] {
+  visibility: hidden;
+}
+
+input[type="radio"]:checked + label {
+  color: var(--primary-color);
+}
+
+input[type="radio"]:checked + label + .check {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+input[type="radio"]:checked + label + .check::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--light-color);
+}
+
+button {
+  padding: 0.5em 2em;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+}
+/* 
+button:hover {
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  transform: scale(1.1);
+} */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
